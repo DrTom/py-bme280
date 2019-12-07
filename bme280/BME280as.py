@@ -37,7 +37,7 @@ class BME280as(bme280.BME280.BME280):
             try:
                 listener(self.last_sample)
             except Exception as e:
-                logger.warn("Error invoking update_listener {}".format(k))
+                logger.warning("Error invoking update_listener {}".format(k))
 
     async def sample_async_loop(self, loop_id):
         try:
