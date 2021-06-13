@@ -28,11 +28,11 @@ oversampling.x16 = 5
 
 DEFAULT_PORT = 0x76
 
-
 class params(dict):
-    __getattr__ = dict.__getitem__
-    __setattr__ = dict.__setitem__
-    __delattr__ = dict.__delitem__
+    def __getattr__(self, attr):
+        return self[attr]
+    def __setattr__(self, attr, value):
+        self[attr] = value
 
 def load_calibration_params(bus, address=DEFAULT_PORT):
     """
